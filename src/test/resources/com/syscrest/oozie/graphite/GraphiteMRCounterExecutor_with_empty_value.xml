@@ -1,0 +1,11 @@
+<graphite-mr-counter 
+	xmlns="uri:oozie:graphite-mr-counter-action:1.0" 
+	graphite-host="localhost" 
+	graphite-port="2003"
+	graphite-transport="UDP"
+	metrics-path-prefix="graphite-prefix"
+	nominal-time="2013-05-22T23:00Z">
+    <counter>
+    	<source></source>
+    </counter>
+</graphite-mr-counter>

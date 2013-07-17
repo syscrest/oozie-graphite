@@ -1,0 +1,12 @@
+<graphite-mr-counter 
+	xmlns="uri:oozie:graphite-mr-counter-action:1.0" 
+	graphite-host="localhost" 
+	graphite-port="2003"
+	graphite-transport="UDP"
+	metrics-path-prefix="graphite-prefix"
+	nominal-time="2013-05-22T23:00Z">
+    <counter>
+    	<source>{ "counter v1" : 1234 , "counter	v2" : 456 , "counter		v3 " : 89 }</source>
+    	<mapping matches="counter(.*)" rename-to="countByVersions.$1" />
+    </counter>
+</graphite-mr-counter>

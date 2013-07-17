@@ -1,0 +1,12 @@
+<graphite-mr-counter 
+	xmlns="uri:oozie:graphite-mr-counter-action:1.0" 
+	graphite-host="" 
+	graphite-port="2003"
+	graphite-transport="UDP"
+	metrics-path-prefix="graphite-prefix"
+	nominal-time="2013-05-22T23:00Z">
+    <counter>
+    	<hadoop-counter></hadoop-counter>
+    	<mapping matches="" rename-to="" />
+    </counter>
+</graphite-mr-counter>

@@ -1,0 +1,12 @@
+<graphite-mr-counter 
+	xmlns="uri:oozie:graphite-mr-counter-action:1.0" 
+	graphite-host="localhost" 
+	graphite-port="2004"
+	graphite-transport="TCP"
+	metrics-path-prefix="graphite-prefix"
+	nominal-time="2013-05-22T23:00Z">
+    <counter>
+    	<source>{ "countername" : 1234 }</source>
+    	<mapping matches="countername" rename-to="static-name" />
+    </counter>
+</graphite-mr-counter>

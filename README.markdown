@@ -18,11 +18,11 @@ Downloads have been build with [gradle 1.6](http://www.gradle.org/downloads)
 
 ## Installation
 
-See [[HowToInstallOozieGraphite]] on how to bundle and configure your oozie server with these extentions.
+See [[HowToInstallOozieGraphite](/wiki/HowToInstallOozieGraphite) on how to bundle and configure your oozie server with these extentions.
 
 ## Available modules
 
-* graph your oozie coordinator runs / workflows: see [[GraphiteMRCounterExecutor]]
-* graph your oozie server (internal instrumentation): see [[GraphiteInstrumentationService]]
+* graph your oozie coordinator runs / workflows: see [GraphiteMRCounterExecutor](wiki/GraphiteMRCounterExecutor)
+* graph your oozie server (internal instrumentation): see [GraphiteInstrumentationService](wiki/GraphiteInstrumentationService)
 
 

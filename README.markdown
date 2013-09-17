@@ -14,7 +14,9 @@ and/or oozie-internal instrumentation into graphite.
 
 ## How to build
 
-Downloads have been build with [gradle 1.6](http://www.gradle.org/downloads)
+[![Build Status](https://travis-ci.org/syscrest/oozie-graphite.png)](https://travis-ci.org/syscrest/oozie-graphite)
+
+Use [gradle 1.4++](http://www.gradle.org/downloads)
 
 ## Installation
 
@@ -22,7 +24,17 @@ See [HowToInstallOozieGraphite](https://github.com/syscrest/oozie-graphite/wiki/
 
 ## Available modules
 
-* graph your oozie coordinator runs / workflows: see [GraphiteMRCounterExecutor](https://github.com/syscrest/oozie-graphite/wiki/GraphiteMRCounterExecutor)
-* graph your oozie server (internal instrumentation): see [GraphiteInstrumentationService](https://github.com/syscrest/oozie-graphite/wiki/GraphiteInstrumentationService)
+### graph oozie server internal metrics
+
+see [GraphiteInstrumentationService](https://github.com/syscrest/oozie-graphite/wiki/GraphiteInstrumentationService) on how to monitor oozie internals and make sure to check out the examples:
+
+* [HowToMonitorActionExecutionTimes](https://github.com/syscrest/oozie-graphite/wiki/HowToMonitorActionExecutionTimes) : Monitor your map-reduce submission times, java action submission times, fs action execution times.
+* [HowToMonitorCoordinatorActionTimeouts](https://github.com/syscrest/oozie-graphite/wiki/HowToMonitorCoordinatorActionTimeouts) : Monitor coordinator action timeouts
+
+
+### graph your oozie coordinator actions / workflows
+
+see [GraphiteMRCounterExecutor](https://github.com/syscrest/oozie-graphite/wiki/GraphiteMRCounterExecutor) on how to graph your own bundles / coordinator actions / workflows.
+
 
 

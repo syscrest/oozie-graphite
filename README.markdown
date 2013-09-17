@@ -8,7 +8,7 @@ and/or oozie-internal instrumentation into graphite.
 
 ## Compatibility
 
-* [Oozie 3.3.0](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
+* [Oozie 3.3.2](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
  
 (see comments in `build.gradle` and `GraphiteMRCounterExecutor` on downgrading it to Oozie 3.1.3-incubating)
 

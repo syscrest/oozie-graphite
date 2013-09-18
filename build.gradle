@@ -1,18 +1,24 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'findbugs'
 
 version = '0.9.0-WIP'
 group = 'com.syscrest.oozie'
 sourceCompatibility = '1.6'
 
-
+/*
 repositories {
 	maven {
 		url 'http://repo1.maven.org/maven2'
 		artifactUrls "https://repository.cloudera.com/artifactory/cloudera-repos/"
 	}
-}  
+} 
+*/
+
+repositories {
+  mavenCentral()
+  mavenRepo name:'cloudera', urls:"https://repository.cloudera.com/artifactory/cloudera-repos/"
+}
+ 
 test {
 
 	maxParallelForks = 1;

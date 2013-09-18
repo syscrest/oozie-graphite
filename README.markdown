@@ -14,7 +14,9 @@ and/or oozie-internal instrumentation into graphite.
 
 ## How to build
 
+<!--
 [![Build Status](https://travis-ci.org/syscrest/oozie-graphite.png)](https://travis-ci.org/syscrest/oozie-graphite)
+-->
 
 Use [gradle 1.4++](http://www.gradle.org/downloads)
 

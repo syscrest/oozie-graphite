@@ -120,6 +120,9 @@ public class GraphiteLogger {
 	}
 
 	private void send(StringBuffer buffer) throws IOException {
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("\n" + buffer);
+		}
 		if (Transport.UDP.equals(this.transport)) {
 			sendUDP(buffer);
 		} else if (Transport.TCP.equals(this.transport)) {
@@ -145,7 +148,6 @@ public class GraphiteLogger {
 
 	private void sendTCP(StringBuffer buffer) throws IOException {
 
-		// TODO reuse TCP connection
 		byte[] bytes = buffer.toString().getBytes(UTF8);
 		Socket clientSocket = null;
 		try {
@@ -153,6 +155,7 @@ public class GraphiteLogger {
 			DataOutputStream outToServer = new DataOutputStream(
 					clientSocket.getOutputStream());
 			outToServer.write(bytes);
+			outToServer.flush();
 		} finally {
 			if (clientSocket != null) {
 				clientSocket.close();

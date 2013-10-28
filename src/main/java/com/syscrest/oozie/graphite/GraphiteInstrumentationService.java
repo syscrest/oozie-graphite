@@ -37,6 +37,18 @@ public class GraphiteInstrumentationService implements Service {
 
 	private final XLog LOG = XLog.getLog(getClass());
 
+	private Integer graphitePort;
+
+	private String graphiteHost;
+
+	private Transport graphiteTransport;
+
+	private String pathPrefix;
+
+	private List<Pattern> whitelistPatterns;
+
+	private List<Pattern> blacklistPatterns;
+
 	public static final String CONF_PREFIX = "com.syscrest.oozie.graphite.GraphiteInstrumentationService.";
 
 	public static final String CONF_LOGGING_INTERVAL = CONF_PREFIX
@@ -77,7 +89,7 @@ public class GraphiteInstrumentationService implements Service {
 					"SchedulerService unavailable");
 		}
 
-		String graphiteHost = services.getConf().get(CONF_GRAPHITE_HOST, null);
+		graphiteHost = services.getConf().get(CONF_GRAPHITE_HOST, null);
 		if (graphiteHost == null) {
 			throw new ServiceException(ErrorCode.E0100, getClass().getName(),
 					"can not handle graphite host configuration ("
@@ -86,7 +98,7 @@ public class GraphiteInstrumentationService implements Service {
 		}
 
 		String port = services.getConf().get(CONF_GRAPHITE_PORT, null);
-		Integer graphitePort = null;
+		graphitePort = null;
 		if (port != null) {
 			graphitePort = Integer.valueOf(port);
 		}
@@ -94,14 +106,13 @@ public class GraphiteInstrumentationService implements Service {
 		String transportAsString = services.getConf().get(
 				CONF_GRAPHITE_TRANSPORT, null);
 
-		GraphiteLogger.Transport graphiteTransport = null;
+		graphiteTransport = null;
 		if (transportAsString != null) {
 			graphiteTransport = Transport.valueOf(transportAsString
 					.toUpperCase().trim());
 		}
 
-		String pathPrefix = services.getConf().get(CONF_GRAPHITE_PATH_PREFIX,
-				null);
+		pathPrefix = services.getConf().get(CONF_GRAPHITE_PATH_PREFIX, null);
 		if (pathPrefix == null) {
 			throw new ServiceException(ErrorCode.E0100, getClass().getName(),
 					"can not handle path prefix configuration ("
@@ -114,7 +125,7 @@ public class GraphiteInstrumentationService implements Service {
 			LOG.info("new path prefix \"" + pathPrefix + "\"");
 		}
 
-		List<Pattern> whitelistPatterns = new ArrayList<Pattern>();
+		whitelistPatterns = new ArrayList<Pattern>();
 		try {
 			for (String p : services.getConf().getStrings(
 					CONF_GRAPHITE_METRICS_WHITELIST, new String[] { ".*" })) {
@@ -126,7 +137,7 @@ public class GraphiteInstrumentationService implements Service {
 					"whitelist pattern error", pe);
 		}
 
-		List<Pattern> blacklistPatterns = new ArrayList<Pattern>();
+		blacklistPatterns = new ArrayList<Pattern>();
 		try {
 			for (String p : services.getConf().getStrings(
 					CONF_GRAPHITE_METRICS_BLACKLIST, new String[] {})) {
@@ -146,10 +157,11 @@ public class GraphiteInstrumentationService implements Service {
 						graphiteHost, graphitePort, graphiteTransport,
 						pathPrefix, whitelistPatterns, blacklistPatterns),
 						interval, interval, SchedulerService.Unit.SEC);
-				LOG.info("GraphiteInstrumentationService setup complete (configured interval = "
-						+ interval + " seconds)");
+				LOG.info("GraphiteInstrumentationService setup complete "
+						+ this.toString());
 			} else {
-				LOG.info("GraphiteInstrumentationService disabled (interval < 1)");
+				LOG.info("GraphiteInstrumentationService setup complete, but disabled (!) (interval < 1) "
+						+ this.toString());
 			}
 		} catch (Exception e) {
 			LOG.error(
@@ -158,7 +170,7 @@ public class GraphiteInstrumentationService implements Service {
 			throw new ServiceException(
 					ErrorCode.E0100,
 					getClass().getName(),
-					"caught exeception on initialisation of graphite logger + scheduler",
+					"exception while initializing Graphite logger and scheduling Runner",
 					e);
 		}
 
@@ -167,6 +179,15 @@ public class GraphiteInstrumentationService implements Service {
 	@Override
 	public void destroy() {
 		// nothing to clean up
+	}
+
+	@Override
+	public String toString() {
+		return "GraphiteInstrumentationService [graphiteHost=" + graphiteHost
+				+ ", graphiteTransport=" + graphiteTransport
+				+ ", graphitePort=" + graphitePort + ", pathPrefix="
+				+ pathPrefix + ", whitelistPatterns=" + whitelistPatterns
+				+ ", blacklistPatterns=" + blacklistPatterns + "]";
 	}
 
 	@Override
@@ -289,4 +310,5 @@ public class GraphiteInstrumentationService implements Service {
 			}
 		}
 	}
+
 }

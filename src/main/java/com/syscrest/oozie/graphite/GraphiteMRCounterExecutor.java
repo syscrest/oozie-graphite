@@ -76,11 +76,9 @@ public class GraphiteMRCounterExecutor extends ActionExecutor {
 	public void start(final Context context, final WorkflowAction action)
 			throws ActionExecutorException {
 		try {
-
 			Element actionXml = XmlUtils.parseXml(action.getConf());
-
 			if (actionXml.getAttributeValue(ATTRIBUTE_GRAPHITE_PORT) == null) {
-				// defaulting to TCP transport and standard port (2003)
+				// will default to TCP transport and standard port (2003)
 				if (actionXml.getAttributeValue(ATTRIBUTE_GRAPHITE_TRANSPORT) == null) {
 					graphiteLogger = new GraphiteLogger(
 							actionXml

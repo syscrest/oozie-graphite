@@ -9,7 +9,7 @@ xmlns:ns1="uri:oozie:graphite-mr-counter-action:1.0">
       	<xs:element minOccurs="1" maxOccurs="unbounded" ref="ns1:counter"/>
       </xs:sequence>
       <xs:attribute name="graphite-host" use="required" type="xs:string"/>
-      <xs:attribute name="graphite-port" use="optional" type="xs:int"/>
+      <xs:attribute name="graphite-port" use="optional" type="xs:string"/>
       <xs:attribute name="graphite-transport" use="optional" type="xs:string"/>
       <xs:attribute name="nominal-time" use="required" type="xs:string"/>
       <xs:attribute name="metrics-path-prefix" use="required" type="xs:string"/>

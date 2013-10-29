@@ -20,7 +20,7 @@ Use [gradle 1.4++](http://www.gradle.org/downloads)
 
 ## Releases
 
-2013-10-28 - v1.0.0 - [oozie-graphite-1.0.0.jar](http://dl.bintray.com/syscrest/oozie-graphite/oozie-graphite-1.0.0.jar) (bintray)
+2013-10-28 - v1.0.0 - [oozie-graphite-1.0.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/v1.0.0/oozie-graphite-1.0.0.jar)
 
 ## Installation
 

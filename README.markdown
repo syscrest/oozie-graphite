@@ -36,7 +36,7 @@ _Related blog posts with example use cases:_
 
 * Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-installing-graphiteinstrumentationservice/)
 * Blog post on [syscrest.com](http://www.syscrest.com) : [Monitoring action performance (mapreduce/java/fs actions) with GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-action-performance/)
-* Blog post on [syscrest.com](http://www.syscrest.com) : [Visualizing coordinator actions timeouts](http://www.syscrest.com/2013/09/oozie-monitoring-coordinator-action-timeouts-graphite/)
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Visualizing coordinator action timeouts](http://www.syscrest.com/2013/09/oozie-monitoring-coordinator-action-timeouts-graphite/)
 
 ### GraphiteMRCounterExecutor
 

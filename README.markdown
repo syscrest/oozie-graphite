@@ -16,8 +16,11 @@ and/or oozie-internal instrumentation into graphite.
 
 [![Build Status](https://travis-ci.org/syscrest/oozie-graphite.png)](https://travis-ci.org/syscrest/oozie-graphite)
 
-
 Use [gradle 1.4++](http://www.gradle.org/downloads)
+
+## Releases
+
+2013-10-28 - v1.0.0 - [oozie-graphite-1.0.0.jar](http://dl.bintray.com/syscrest/oozie-graphite/oozie-graphite-1.0.0.jar) (bintray)
 
 ## Installation
 
@@ -29,18 +32,21 @@ See [HowToInstallOozieGraphite](https://github.com/syscrest/oozie-graphite/wiki/
 
 Monitor your oozie instance by pushing already available internal oozie metrics into your graphite installation. See [GraphiteInstrumentationService](https://github.com/syscrest/oozie-graphite/wiki/GraphiteInstrumentationService) for further details and how to configure this module.
 
-__Examples:__
+_Related blog posts with example use cases:_
 
-* [HowToMonitorActionExecutionTimes](https://github.com/syscrest/oozie-graphite/wiki/HowToMonitorActionExecutionTimes) : Monitor your map-reduce submission times, java action submission times, fs action execution times.
-* [HowToMonitorCoordinatorActionTimeouts](https://github.com/syscrest/oozie-graphite/wiki/HowToMonitorCoordinatorActionTimeouts) : Monitor coordinator action timeouts
-
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-installing-graphiteinstrumentationservice/)
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Monitoring action performance (mapreduce/java/fs actions) with GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-action-performance/)
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Visualizing coordinator actions timeouts](http://www.syscrest.com/2013/09/oozie-monitoring-coordinator-action-timeouts-graphite/)
 
 ### GraphiteMRCounterExecutor
 
 
 Graph your oozie coordinator runs / workflows by pushing map-reduce counters into graphite. See [GraphiteMRCounterExecutor](https://github.com/syscrest/oozie-graphite/wiki/GraphiteMRCounterExecutor) for further details and how to configure this module.
 
-__Examples:__
+_Related blog posts with example use cases:_
 
- * TODO
+ * Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteMRCounterExecutor](http://www.syscrest.com/2013/10/oozie-bundle-coordinator-monitoring-installing-graphitemrcounterexecutor/)
+ * Blog post on [syscrest.com](http://www.syscrest.com) : [Tapping into hadoop counters with GraphiteMRCounterExecutor](http://www.syscrest.com/2013/10/oozie-bundle-monitoring-tapping-into-hadoop-counters/)
+
+
 

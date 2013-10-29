@@ -1,18 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-version = '1.0.0'
+version = '1.0.1-SNAPSHOT'
 group = 'com.syscrest.oozie'
 sourceCompatibility = '1.6'
-
-/*
-repositories {
-	maven {
-		url 'http://repo1.maven.org/maven2'
-		artifactUrls "https://repository.cloudera.com/artifactory/cloudera-repos/"
-	}
-} 
-*/
 
 repositories {
   mavenCentral()

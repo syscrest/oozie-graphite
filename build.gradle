@@ -3,7 +3,9 @@ apply plugin: 'eclipse'
 
 version = '1.0.1-SNAPSHOT'
 group = 'com.syscrest.oozie'
+
 sourceCompatibility = '1.6'
+targetCompatibility = '1.6'
 
 repositories {
   mavenCentral()

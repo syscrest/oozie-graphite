@@ -15,6 +15,7 @@
  */
 package com.syscrest.oozie.graphite;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -62,14 +63,13 @@ public class GraphiteMRCounterExecutor extends ActionExecutor {
 		super(ACTION_TYPE);
 	}
 
-	public GraphiteMRCounterExecutor(String type, long retryInterval) {
-		super(type, retryInterval);
-
-	}
-
 	public GraphiteMRCounterExecutor(String type) {
 		super(type);
 
+	}
+
+	public GraphiteMRCounterExecutor(String type, long retryInterval) {
+		super(type, retryInterval);
 	}
 
 	@Override
@@ -202,7 +202,7 @@ public class GraphiteMRCounterExecutor extends ActionExecutor {
 
 		Map<String, Long> source = null;
 
-		Map<Pattern, String> rules = new TreeMap<Pattern, String>();
+		Map<Pattern, String> rules = new HashMap<Pattern, String>();
 
 		public Map<String, Long> getSource() {
 			return source;

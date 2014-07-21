@@ -26,7 +26,6 @@ import junit.framework.Assert;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.log4j.Logger;
-import org.apache.oozie.action.ActionExecutor;
 import org.apache.oozie.action.ActionExecutorException;
 import org.apache.oozie.service.Services;
 import org.junit.After;
@@ -36,7 +35,7 @@ import org.junit.Test;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 
-public class GraphiteMRCounterExecutorExecutorTest {
+public class GraphiteMRCounterExecutorExecutorTestEmptyValue {
 
 	private final Logger logger = Logger.getLogger(getClass());
 
@@ -50,7 +49,6 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void setUp() throws Exception {
 		System.setProperty(Services.OOZIE_HOME_DIR, "/tmp");
 		final Configuration oozieConf = new Configuration();
-		oozieConf.setInt(ActionExecutor.MAX_RETRIES, 1);
 
 		fixture = new GraphiteMRCounterExecutor() {
 
@@ -128,19 +126,6 @@ public class GraphiteMRCounterExecutorExecutorTest {
 		}
 	}
 
-	@Test(expected = ActionExecutorException.class)
-	public void testStart_graphite_host_empty() throws ActionExecutorException,
-			IOException {
-
-		final String configuration = Resources.toString(Resources.getResource(
-				this.getClass(),
-				"GraphiteMRCounterExecutor_graphite-host_missing.xml"),
-				Charsets.UTF_8);
-		final TestWorkflowAction action = new TestWorkflowAction(configuration);
-
-		fixture.start(new TestContext(), action);
-	}
-
 	private void runTestUDP(int port ,String fileName, String... ExpectedgraphiteData)
 			throws IOException, ActionExecutorException, InterruptedException {
 		setupUDP(port);
@@ -163,78 +148,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 		Assert.assertEquals("", parts[parts.length - 1].trim());
 	}
 
-	private void runTestTCP(int port, String fileName, String... expectedGraphiteData)
-			throws IOException, ActionExecutorException, InterruptedException {
-		setupTCP(port);
-		final String configuration = Resources.toString(
-				Resources.getResource(this.getClass(), fileName),
-				Charsets.UTF_8);
-		final TestWorkflowAction action = new TestWorkflowAction(configuration);
-
-		fixture.start(new TestContext(), action);
-		Thread.sleep(500);
-
-		String[] parts = ((graphiteData != null) ? graphiteData.split("\n", -1)
-				: new String[] { "\n" });
-
-		Assert.assertEquals(expectedGraphiteData.length, parts.length - 1);
-		for (int i = 0; i < expectedGraphiteData.length; i++) {
-			Assert.assertEquals(expectedGraphiteData[i], parts[i]);
-		}
-		Assert.assertEquals("", parts[parts.length - 1].trim());
-	}
-
-	@Test
-	public void testGraphiteMRCounterExecutor_with_static_mapping()
-			throws ActionExecutorException, IOException, InterruptedException {
-
-		runTestUDP(2003 , "GraphiteMRCounterExecutor_with_static_mapping.xml",
-				"graphite-prefix.static-name 1234 1369263600");
-
-	}
-
-	@Test
-	public void testGraphiteMRCounterExecutor_with_static_mapping_tcp()
-			throws ActionExecutorException, IOException, InterruptedException {
-
-		runTestTCP(2004 , "GraphiteMRCounterExecutor_with_static_mapping_tcp.xml",
-				"graphite-prefix.static-name 1234 1369263600");
-
-	}
-
-	@Test
-	public void testGraphiteMRCounterExecutor_with_implicit_mapping()
-			throws ActionExecutorException, IOException, InterruptedException {
-
-		runTestUDP(2005 , "GraphiteMRCounterExecutor_with_implicit_mapping.xml",
-				new String[] { "graphite-prefix.counter1 1234 1369263600",
-						"graphite-prefix.counter2 56 1369263600" });
-
-	}
-
-	@Test
-	public void testGraphiteMRCounterExecutor_with_rename_mapping()
-			throws ActionExecutorException, IOException, InterruptedException {
-
-		runTestUDP(2006 , "GraphiteMRCounterExecutor_with_rename_mapping.xml",
-				new String[] {
-						"graphite-prefix.countByVersions.v1 1234 1369263600",
-						"graphite-prefix.countByVersions.v2 456 1369263600",
-						"graphite-prefix.countByVersions.v3 89 1369263600" });
-
-	}
-
-	@Test
-	public void testGraphiteMRCounterExecutor_with_bad_counter_names()
-			throws ActionExecutorException, IOException, InterruptedException {
-
-		runTestUDP(2007 , "GraphiteMRCounterExecutor_with_bad_counter_names.xml",
-				new String[] {
-						"graphite-prefix.countByVersions.__v3_ 89 1369263600",
-						"graphite-prefix.countByVersions._v1 1234 1369263600",
-						"graphite-prefix.countByVersions._v2 456 1369263600" });
-
-	}
+	
 
 	@Test
 	public void testGraphiteMRCounterExecutor_with_empty_value()

@@ -34,9 +34,9 @@ Monitor your oozie instance by pushing already available internal oozie metrics 
 
 _Related blog posts with example use cases:_
 
-* Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-installing-graphiteinstrumentationservice/)
-* Blog post on [syscrest.com](http://www.syscrest.com) : [Monitoring action performance (mapreduce/java/fs actions) with GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-action-performance/)
-* Blog post on [syscrest.com](http://www.syscrest.com) : [Visualizing coordinator action timeouts](http://www.syscrest.com/2013/09/oozie-monitoring-coordinator-action-timeouts-graphite/)
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-installing-graphiteinstrumentationservice/?utm_source=github&utm_medium=github&utm_campaign=github-oozie-graphite)
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Monitoring action performance (mapreduce/java/fs actions) with GraphiteInstrumentationService](http://www.syscrest.com/2013/08/oozie-monitoring-action-performance/?utm_source=github&utm_medium=github&utm_campaign=github-oozie-graphite)
+* Blog post on [syscrest.com](http://www.syscrest.com) : [Visualizing coordinator action timeouts](http://www.syscrest.com/2013/09/oozie-monitoring-coordinator-action-timeouts-graphite/?utm_source=github&utm_medium=github&utm_campaign=github-oozie-graphite)
 
 ### GraphiteMRCounterExecutor
 
@@ -45,8 +45,8 @@ Graph your oozie coordinator runs / workflows by pushing map-reduce counters int
 
 _Related blog posts with example use cases:_
 
- * Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteMRCounterExecutor](http://www.syscrest.com/2013/10/oozie-bundle-coordinator-monitoring-installing-graphitemrcounterexecutor/)
- * Blog post on [syscrest.com](http://www.syscrest.com) : [Tapping into hadoop counters with GraphiteMRCounterExecutor](http://www.syscrest.com/2013/10/oozie-bundle-monitoring-tapping-into-hadoop-counters/)
+ * Blog post on [syscrest.com](http://www.syscrest.com) : [Installing GraphiteMRCounterExecutor](http://www.syscrest.com/2013/10/oozie-bundle-coordinator-monitoring-installing-graphitemrcounterexecutor/?utm_source=github&utm_medium=github&utm_campaign=github-oozie-graphite)
+ * Blog post on [syscrest.com](http://www.syscrest.com) : [Tapping into hadoop counters with GraphiteMRCounterExecutor](http://www.syscrest.com/2013/10/oozie-bundle-monitoring-tapping-into-hadoop-counters/?utm_source=github&utm_medium=github&utm_campaign=github-oozie-graphite)
 
 
 

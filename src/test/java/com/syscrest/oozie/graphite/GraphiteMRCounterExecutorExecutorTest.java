@@ -62,14 +62,14 @@ public class GraphiteMRCounterExecutorExecutorTest {
 		};
 	}
 
-	public void setupUDP() {
+	public void setupUDP(final int port) {
 
 		server = new Thread() {
 
 			@Override
 			public void run() {
 				try {
-					DatagramSocket serverSocket = new DatagramSocket(2003,
+					DatagramSocket serverSocket = new DatagramSocket(port,
 							InetAddress.getByName("localhost"));
 					byte[] receiveData = new byte[1024];
 
@@ -91,14 +91,14 @@ public class GraphiteMRCounterExecutorExecutorTest {
 
 	}
 
-	public void setupTCP() {
+	public void setupTCP(final int port) {
 		server = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 
 				try {
-					ServerSocket serverSocket = new ServerSocket(2004);
+					ServerSocket serverSocket = new ServerSocket(port);
 					byte[] receiveData = new byte[1024];
 
 					Socket connectionSocket = serverSocket.accept();
@@ -141,9 +141,9 @@ public class GraphiteMRCounterExecutorExecutorTest {
 		fixture.start(new TestContext(), action);
 	}
 
-	private void runTestUDP(String fileName, String... ExpectedgraphiteData)
+	private void runTestUDP(int port ,String fileName, String... ExpectedgraphiteData)
 			throws IOException, ActionExecutorException, InterruptedException {
-		setupUDP();
+		setupUDP(port);
 
 		final String configuration = Resources.toString(
 				Resources.getResource(this.getClass(), fileName),
@@ -163,9 +163,9 @@ public class GraphiteMRCounterExecutorExecutorTest {
 		Assert.assertEquals("", parts[parts.length - 1].trim());
 	}
 
-	private void runTestTCP(String fileName, String... expectedGraphiteData)
+	private void runTestTCP(int port, String fileName, String... expectedGraphiteData)
 			throws IOException, ActionExecutorException, InterruptedException {
-		setupTCP();
+		setupTCP(port);
 		final String configuration = Resources.toString(
 				Resources.getResource(this.getClass(), fileName),
 				Charsets.UTF_8);
@@ -188,7 +188,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void testGraphiteMRCounterExecutor_with_static_mapping()
 			throws ActionExecutorException, IOException, InterruptedException {
 
-		runTestUDP("GraphiteMRCounterExecutor_with_static_mapping.xml",
+		runTestUDP(2003 , "GraphiteMRCounterExecutor_with_static_mapping.xml",
 				"graphite-prefix.static-name 1234 1369263600");
 
 	}
@@ -197,7 +197,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void testGraphiteMRCounterExecutor_with_static_mapping_tcp()
 			throws ActionExecutorException, IOException, InterruptedException {
 
-		runTestTCP("GraphiteMRCounterExecutor_with_static_mapping_tcp.xml",
+		runTestTCP(2004 , "GraphiteMRCounterExecutor_with_static_mapping_tcp.xml",
 				"graphite-prefix.static-name 1234 1369263600");
 
 	}
@@ -206,7 +206,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void testGraphiteMRCounterExecutor_with_implicit_mapping()
 			throws ActionExecutorException, IOException, InterruptedException {
 
-		runTestUDP("GraphiteMRCounterExecutor_with_implicit_mapping.xml",
+		runTestUDP(2005 , "GraphiteMRCounterExecutor_with_implicit_mapping.xml",
 				new String[] { "graphite-prefix.counter1 1234 1369263600",
 						"graphite-prefix.counter2 56 1369263600" });
 
@@ -216,7 +216,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void testGraphiteMRCounterExecutor_with_rename_mapping()
 			throws ActionExecutorException, IOException, InterruptedException {
 
-		runTestUDP("GraphiteMRCounterExecutor_with_rename_mapping.xml",
+		runTestUDP(2006 , "GraphiteMRCounterExecutor_with_rename_mapping.xml",
 				new String[] {
 						"graphite-prefix.countByVersions.v1 1234 1369263600",
 						"graphite-prefix.countByVersions.v2 456 1369263600",
@@ -228,7 +228,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void testGraphiteMRCounterExecutor_with_bad_counter_names()
 			throws ActionExecutorException, IOException, InterruptedException {
 
-		runTestUDP("GraphiteMRCounterExecutor_with_bad_counter_names.xml",
+		runTestUDP(2007 , "GraphiteMRCounterExecutor_with_bad_counter_names.xml",
 				new String[] {
 						"graphite-prefix.countByVersions.__v3_ 89 1369263600",
 						"graphite-prefix.countByVersions._v1 1234 1369263600",
@@ -240,7 +240,7 @@ public class GraphiteMRCounterExecutorExecutorTest {
 	public void testGraphiteMRCounterExecutor_with_empty_value()
 			throws ActionExecutorException, IOException, InterruptedException {
 
-		runTestUDP("GraphiteMRCounterExecutor_with_empty_value.xml",
+		runTestUDP(2008 , "GraphiteMRCounterExecutor_with_empty_value.xml",
 				new String[] {});
 
 	}

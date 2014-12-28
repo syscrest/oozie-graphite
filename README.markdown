@@ -25,7 +25,9 @@ Use [gradle 1.12](http://www.gradle.org/downloads), simply use the bundled and p
 
 ## Releases
 
-2013-10-28 - v1.0.0 - Oozie 3.3.x - CDH4 - JDK 1.6 [oozie-graphite-1.0.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/v1.0.0/oozie-graphite-1.0.0.jar)
+### v1.0.0 - 2013-10-28 - Oozie 3.3.x - CDH4 - JDK 1.6
+
+* [oozie-graphite-1.0.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/v1.0.0/oozie-graphite-1.0.0.jar)
 
 
 ## Installation

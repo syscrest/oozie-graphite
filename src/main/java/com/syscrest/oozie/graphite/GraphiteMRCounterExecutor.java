@@ -140,9 +140,9 @@ public class GraphiteMRCounterExecutor extends ActionExecutor {
 
 		for (Map.Entry<String, Long> sourceEntry : counter.getSource()
 				.entrySet()) {
-			for (Map.Entry<Pattern, String> mapping : counter.getRules()
+			for (Map.Entry<String, String> mapping : counter.getRules()
 					.entrySet()) {
-				Matcher matcher = mapping.getKey()
+				Matcher matcher = Pattern.compile(mapping.getKey())
 						.matcher(sourceEntry.getKey());
 				if (matcher.matches()) {
 					String metricsName = metricsPathPrefix
@@ -202,13 +202,13 @@ public class GraphiteMRCounterExecutor extends ActionExecutor {
 
 		Map<String, Long> source = null;
 
-		Map<Pattern, String> rules = new HashMap<Pattern, String>();
+		Map<String, String> rules = new HashMap<String, String>();
 
 		public Map<String, Long> getSource() {
 			return source;
 		}
 
-		public Map<Pattern, String> getRules() {
+		public Map<String, String> getRules() {
 			return rules;
 		}
 
@@ -231,12 +231,12 @@ public class GraphiteMRCounterExecutor extends ActionExecutor {
 						}
 						String renameRule = child
 								.getAttributeValue(MAPPING_ELEMENT_ATTRIBUTE_RENAME_TO);
-						rules.put(pattern, renameRule);
+						rules.put(pattern.toString(), renameRule);
 					}
 				}
 				// defaulting to DOT ALL if no explicit mappings were provided
 				if (rules.size() == 0) {
-					rules.put(DOT_ALL_PATTERN, null);
+					rules.put(DOT_ALL_PATTERN.toString(), null);
 				}
 			}
 

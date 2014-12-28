@@ -8,19 +8,25 @@ and/or oozie-internal instrumentation into graphite.
 
 ## Compatibility
 
-* [Oozie 3.3.2](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
- 
-(see comments in `build.gradle` and `GraphiteMRCounterExecutor` on downgrading it to Oozie 3.1.3-incubating)
+Version 1.0
+
+* [Oozie 3.3.2 - CDH4 - JDK 1.6](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
+
+Version 1.1.0-SNAPSHOT
+
+* [Oozie 4.0.0 - CDH5 - JDK 1.7](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
+
 
 ## How to build
 
 [![Build Status](https://travis-ci.org/syscrest/oozie-graphite.png)](https://travis-ci.org/syscrest/oozie-graphite)
 
-Use [gradle 1.4++](http://www.gradle.org/downloads)
+Use [gradle 1.12](http://www.gradle.org/downloads), simply use the bundled and preconfigured gradlew wrapper.
 
 ## Releases
 
-2013-10-28 - v1.0.0 - [oozie-graphite-1.0.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/v1.0.0/oozie-graphite-1.0.0.jar)
+2013-10-28 - v1.0.0 - Oozie 3.3.x - CDH4 - JDK 1.6 [oozie-graphite-1.0.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/v1.0.0/oozie-graphite-1.0.0.jar)
+
 
 ## Installation
 

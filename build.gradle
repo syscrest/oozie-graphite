@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-version = '1.1.0'
+version = '1.1.1-SNAPSHOT'
 group = 'com.syscrest.oozie'
 
 sourceCompatibility = '1.7'

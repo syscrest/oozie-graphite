@@ -10,11 +10,11 @@ and/or oozie-internal instrumentation into graphite.
 
 Version 1.0
 
-* [Oozie 3.3.2 - CDH4 - JDK 1.6](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
+* [Oozie 3.3.x - CDH4 - JDK 1.6](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
 
 Version 1.1.0
 
-* [Oozie 4.0.0 - CDH5 - JDK 1.7](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
+* [Oozie 4.x - CDH5 - JDK 1.7](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
 
 
 ## How to build

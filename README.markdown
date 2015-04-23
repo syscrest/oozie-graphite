@@ -12,7 +12,7 @@ Version 1.0
 
 * [Oozie 3.3.2 - CDH4 - JDK 1.6](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
 
-Version 1.1.0-SNAPSHOT
+Version 1.1.0
 
 * [Oozie 4.0.0 - CDH5 - JDK 1.7](http://oozie.apache.org/) + [Graphite 0.9.x](http://graphite.readthedocs.org/en/0.9.10)
 
@@ -28,6 +28,10 @@ Use [gradle 1.12](http://www.gradle.org/downloads), simply use the bundled and p
 v1.0.0 - 2013-10-28 - Oozie 3.3.x - CDH4 - JDK 1.6
 
 * [oozie-graphite-1.0.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/v1.0.0/oozie-graphite-1.0.0.jar)
+
+v1.1.0 - 2015-02-14 - Oozie 4.x - CDH% - JDK 1.7
+
+* [oozie-graphite-1.1.0.jar](https://github.com/syscrest/oozie-graphite/releases/download/Version_1.1.0/oozie-graphite-1.1.0.jar)
 
 
 ## Installation
